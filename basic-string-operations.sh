@@ -1,12 +1,24 @@
 #!/bin/bash
-
 BUFFETT="Life is like a snowball. The important thing is finding wet snow and a really long hill."
-# write your code here
-#ISAY=
-ISAY=${BUFFETT[@]/snow/foot}
-ISAY1=${ISAY[@]// snow/}
-ISAY2=${ISAY1[@]/finding/getting}
-#TEXT=
-WPOSITION=expr index $ISAY2 wet
+PLACEHOLDER=${BUFFETT[@]/snow/foot}
+PLACEHOLDER1=${PLACEHOLDER[@]// snow/}
+PLACEHOLDER2=${PLACEHOLDER1[@]/finding/getting}
+WPOSITION=`expr index "$PLACEHOLDER2" 'w'`
+SLICETO=$(($WPOSITION+2))
 
-echo $WPOSITION
+ISAY=${PLACEHOLDER2[@]:0:$SLICETO}
+
+# Test code - do not modify
+echo "Warren Buffett said:"
+echo $BUFFETT
+echo "and I say:"
+echo $ISAY
+
+#### Solution
+# write your code here
+# ISAY=$BUFFETT
+# change1=${ISAY[@]/snow/foot}
+# change2=${change1[@]//snow/}
+# change3=${change2[@]/finding/getting}
+# loc=`expr index "$change3" 'w'`
+# ISAY=${change3::$loc+2}
