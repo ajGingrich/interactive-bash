@@ -1,4 +1,12 @@
 #!/bin/bash
-STRING='to be or not to be'
+COUNT=0
 
-echo ${STRING[@]/%be/be on $(date +%Y-%m-%d)}
+while [ $COUNT -lt 10 ]; do
+  COUNT=$((COUNT+1))
+  if [ $((COUNT % 2)) = 0 ]; then
+    continue
+  fi
+  echo "Val of count: $COUNT"
+done
+
+echo 'hello'
